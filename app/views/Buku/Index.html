@@ -1,0 +1,26 @@
+{{set . "title" "Buku"}}
+{{template "header.html" .}}
+    <div class="col-sm-6 col-sm-offset-3">
+        <form method="POST" action="{{url "Buku.Simpan"}}">
+            <label>Kode Buku</label> <input type="text" name="kdbuku"><br>
+            <label>Judul</label> <input type="text" name="judul"><br>
+            <label>Pengarang</label> <input type="text" name="pengarang"><br>
+            <input type="submit" class="btn btn-primary">
+        </form><br>
+        <table border="1">
+            <tr>
+                <th>Kode</th>
+                <th>Judul</th>
+                <th>Pengarang</th>
+            </tr>
+                {{range $b := .buku}}
+                    <tr>
+                        <td>{{$b.KdBuku}}</td>
+                        <td>{{$b.Judul}}</td>
+                        <td>{{$b.Pengarang}}</td>
+                    </tr>
+                {{end}}
+        </table>
+    </div>
+
+{{template "footer.html" .}}
