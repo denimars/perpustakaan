@@ -1,26 +1,65 @@
 {{set . "title" "Buku"}}
 {{template "header.html" .}}
-    <div class="col-sm-6 col-sm-offset-3">
-        <form method="POST" action="{{url "Buku.Simpan"}}">
-            <label>Kode Buku</label> <input type="text" name="kdbuku"><br>
-            <label>Judul</label> <input type="text" name="judul"><br>
-            <label>Pengarang</label> <input type="text" name="pengarang"><br>
-            <input type="submit" class="btn btn-primary">
-        </form><br>
-        <table border="1">
-            <tr>
-                <th>Kode</th>
-                <th>Judul</th>
-                <th>Pengarang</th>
-            </tr>
-                {{range $b := .buku}}
-                    <tr>
-                        <td>{{$b.KdBuku}}</td>
-                        <td>{{$b.Judul}}</td>
-                        <td>{{$b.Pengarang}}</td>
-                    </tr>
-                {{end}}
-        </table>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                        <div class="panel-heading">Registrasi Buku</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" method="POST" action="{{url "Buku.Simpan"}}">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Kode Buku</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="kdbuku" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="control-label col-sm-2">Judul</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="judul" class="form-control">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="control-label col-sm-2">Pengarang</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="pengarang" class="form-control">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                       <div class="col-sm-2 col-sm-offset-2">
+                                           <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span></span> Simpan</button>
+                                       </div>
+                                </div>
+                            </form>
+                        </div>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-warning">
+                <div class="panel panel-heading">List Buku</div>
+                <div class="panel panel-body">
+                        <table class="table table-condensed">
+                                <thead>
+                                  <tr>
+                                    <th>Kode Buku</th>
+                                    <th>Judul Buku</th>
+                                    <th>Pengarang</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {{range $b := .buku}}
+                                    <tr>
+                                        <td>{{$b.KdBuku}}</td>
+                                        <td>{{$b.Judul}}</td>
+                                        <td>{{$b.Pengarang}}</td>
+                                    </tr>
+                                  {{end}}
+                                </tbody>
+                              </table>
+                </div>
+            </div>
+        </div>
     </div>
 
 {{template "footer.html" .}}

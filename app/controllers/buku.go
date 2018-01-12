@@ -16,6 +16,7 @@ type Buku struct {
 func (c Buku) Index() revel.Result {
 	var buku []models.Buku
 	app.DB.Find(&buku)
+	log.Println(buku)
 	return c.Render(buku)
 }
 
