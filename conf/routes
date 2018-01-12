@@ -7,10 +7,10 @@ module:testrunner
 # module:jobs
 
 
-GET     /                                       App.Index
+GET     /login                                       App.Index
 
 
-GET     /buku                                   Buku.Index
+GET     /                                       Buku.Index
 POST    /buku/create                            Buku.Simpan
 
 # Ignore favicon requests
