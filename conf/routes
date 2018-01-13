@@ -14,6 +14,8 @@ GET     /                                       Buku.Index
 POST    /buku/create                            Buku.Simpan
 GET     /buku/:id/delete                        Buku.Hapus
 GET     /buku/:id/show                          Buku.Show
+GET     /buku/:id/edit                          Buku.Edit
+POST    /buku/put                               Buku.Put
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

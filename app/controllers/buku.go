@@ -45,6 +45,20 @@ func (c Buku) Show(id int) revel.Result {
 	return c.Render(buku)
 }
 
+func (c Buku) Edit(id int) revel.Result {
+	buku := c.getBuku(id)
+	return c.Render(buku)
+}
+
+func (c Buku) Put(id int, kdbuku string, judul string, pengarang string) revel.Result {
+	buku := c.getBuku(id)
+	buku.KdBuku = kdbuku
+	buku.Judul = judul
+	buku.Pengarang = pengarang
+	app.DB.Save(&buku)
+	return c.Redirect(routes.Buku.Index())
+}
+
 func (c Buku) getBuku(id int) *models.Buku {
 	var buku models.Buku
 	app.DB.Find(&buku, id)

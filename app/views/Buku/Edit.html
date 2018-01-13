@@ -1,0 +1,40 @@
+{{set . "title" "Edit"}}
+{{template "header.html" .}}
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-primary">
+                    <div class="panel-heading">Registrasi Buku</div>
+                    <div class="panel-body">
+                        {{with .buku}}
+                        <form class="form-horizontal" method="POST" action="{{url "Buku.Put"}}">
+                            <input type="hidden" name="id" value="{{.Id}}">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Kode Buku</label>
+                                <div class="col-sm-3">
+                                    <input type="text" name="kdbuku" value="{{.KdBuku}}"  class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-2">Judul</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="judul" value="{{.Judul}}" class="form-control">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-2">Pengarang</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="pengarang" value="{{.Pengarang}}" class="form-control">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                   <div class="col-sm-2 col-sm-offset-2">
+                                       <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span></span> Simpan</button>
+                                   </div>
+                            </div>
+                        </form>
+                        {{end}}
+                    </div>
+            </div>
+    </div>
+</div>
+{{template "footer.html" .}}
