@@ -32,3 +32,10 @@ func (c Buku) Simpan(kdbuku string, judul string, pengarang string) revel.Result
 	}
 	return c.Redirect(routes.Buku.Index())
 }
+
+func (c Buku) Hapus(id int) revel.Result {
+	var buku models.Buku
+	log.Println(id)
+	app.DB.Delete(&buku, id)
+	return c.Redirect(routes.Buku.Index())
+}
