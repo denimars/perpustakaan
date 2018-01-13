@@ -1,0 +1,22 @@
+{{set . "title" "Show Buku"}}
+{{template "header.html" .}}
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-warning">
+            <div class="panel panel-heading">List Buku</div>
+            <div class="panel panel-body">
+                    <table class="table table-condensed">
+                            <tbody>
+                                {{with .buku}}
+                                    <tr><td>Kode Buku</td><td>{{.KdBuku}}<td></td></tr>
+                                    <tr><td>Judul</td><td>{{.Judul}}<td></td></tr>
+                                    <tr><td>Pengarang</td><td>{{.Pengarang}}<td></td></tr>
+                                {{end}}
+                            </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{template "footer.html" .}}

@@ -13,6 +13,7 @@ GET     /login                                       App.Index
 GET     /                                       Buku.Index
 POST    /buku/create                            Buku.Simpan
 GET     /buku/:id/delete                        Buku.Hapus
+GET     /buku/:id/show                          Buku.Show
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

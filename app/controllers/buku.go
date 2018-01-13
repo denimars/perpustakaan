@@ -39,3 +39,14 @@ func (c Buku) Hapus(id int) revel.Result {
 	app.DB.Delete(&buku, id)
 	return c.Redirect(routes.Buku.Index())
 }
+
+func (c Buku) Show(id int) revel.Result {
+	buku := c.getBuku(id)
+	return c.Render(buku)
+}
+
+func (c Buku) getBuku(id int) *models.Buku {
+	var buku models.Buku
+	app.DB.Find(&buku, id)
+	return &buku
+}
